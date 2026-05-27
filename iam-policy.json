@@ -1,0 +1,64 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadIAM",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GenerateCredentialReport",
+        "iam:GetCredentialReport",
+        "iam:ListUsers",
+        "iam:ListUserTags",
+        "iam:ListAccessKeys",
+        "iam:ListAttachedUserPolicies",
+        "iam:ListUserPolicies",
+        "iam:ListGroupsForUser",
+        "iam:ListMFADevices",
+        "iam:ListSigningCertificates",
+        "iam:ListSSHPublicKeys",
+        "iam:ListServiceSpecificCredentials",
+        "iam:GetLoginProfile",
+        "iam:GetUser"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ManageLifecycle",
+      "Effect": "Allow",
+      "Action": [
+        "iam:TagUser",
+        "iam:UntagUser",
+        "iam:UpdateAccessKey",
+        "iam:DeleteAccessKey",
+        "iam:DeleteLoginProfile",
+        "iam:DetachUserPolicy",
+        "iam:DeleteUserPolicy",
+        "iam:RemoveUserFromGroup",
+        "iam:DeactivateMFADevice",
+        "iam:DeleteVirtualMFADevice",
+        "iam:DeleteSigningCertificate",
+        "iam:DeleteSSHPublicKey",
+        "iam:DeleteServiceSpecificCredential",
+        "iam:DeleteUserPermissionsBoundary",
+        "iam:DeleteUser"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "SendNotifications",
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:*:*:iam-lifecycle-events"
+    },
+    {
+      "Sid": "Logs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
