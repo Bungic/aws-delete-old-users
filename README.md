@@ -1,4 +1,4 @@
-# deleteOldUsersLambda
+# aws-delete-old-users
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) ![AWS Lambda](https://img.shields.io/badge/AWS%20Lambda-FF9900?logo=awslambda&logoColor=white)
 
@@ -78,3 +78,7 @@ Every action goes through CloudTrail (`UpdateAccessKey`, `DeleteLoginProfile`, `
 2. Run weekly for 2 cycles, review CloudWatch logs for false positives.
 3. Tag any unexpected hits with `LifecyclePolicy=exempt`.
 4. Set `DRY_RUN=false`.
+
+---
+
+Part of my cloud-engineering portfolio → **[frkangungor.com](https://frkangungor.com)**
