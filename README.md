@@ -10,7 +10,7 @@ AWS Lambda that automatically warns, deactivates, and deletes inactive IAM users
 |------------|-------------------------------------------------|--------------------------------------------------|
 | Warn       | `last_used > 180 days` and no `WarnedAt` tag    | Publish warn event to SNS, set `WarnedAt=YYYY-MM-DD` tag |
 | Deactivate | `WarnedAt > 7 days` ago                         | Disable login profile, mark all keys Inactive, set `DeactivatedAt` tag |
-| Delete     | `DeactivatedAt > 30 days` ago                   | Detach policies, remove from groups, delete user |
+| Delete     | `DeactivatedAt > 30 days` ago                   | Full teardown, then delete: remove login profile, delete access keys, clear signing certificates / SSH keys / service-specific credentials, detach managed policies, delete inline policies, remove group memberships, delete permissions boundary, deactivate MFA, then `DeleteUser` |
 
 State lives entirely on the IAM user as tags. No external database.
 
